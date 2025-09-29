@@ -1,7 +1,244 @@
-<html>
-    <header>
-    </header>
-    <body>
-        
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebWheels - Showcase</title>
+    <style>
+      :root{--accent:#e24f28;--glass: rgba(255,255,255,0.06)}
+      html,body{height:100%;margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;color:#fff;line-height:1.5}
+      
+      /* Hero and background */
+      .hero{position:relative;min-height:100vh;background:#0a0a0a;display:flex;flex-direction:column;overflow-x:hidden}
+      .hero-image{position:absolute;inset:0;background-image:url('Car.jpg');background-size:cover;background-position:center;
+                 filter:brightness(0.15) saturate(0.8);opacity:0.6;z-index:1}
+      .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.4),rgba(0,0,0,0.8));
+                    mix-blend-mode:multiply;pointer-events:none;z-index:2}
+
+      /* Navigation */
+      .vnav{position:fixed;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;
+            padding:10px 6px;background:linear-gradient(180deg,var(--glass),rgba(0,0,0,0));
+            border-top-right-radius:6px;border-bottom-right-radius:6px;z-index:10}
+      .vnav a{width:56px;height:56px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+             color:#fff;background:transparent;text-decoration:none;cursor:pointer;transition:all .18s}
+      .vnav a.active,.vnav a:hover{background:linear-gradient(180deg,var(--accent),#b03820);transform:translateX(4px)}
+      .vnav a svg{width:22px;height:22px}
+
+      .brand{position:fixed;right:48px;top:36px;color:var(--accent);font-weight:700;letter-spacing:1px;z-index:10}
+
+      /* Content area */
+      .content{position:relative;z-index:3;padding:120px 48px 48px;width:100%;box-sizing:border-box;max-width:1600px;margin:0 auto}
+      .title{font-size:72px;color:var(--accent);font-weight:800;margin:0 0 48px;text-transform:uppercase;letter-spacing:2px;text-align:center}
+
+      /* Car grid */
+      .car-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));gap:32px;align-items:start}
+      .car-card{background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2));
+                border-radius:16px;overflow:hidden;backdrop-filter:blur(10px);
+                border:1px solid rgba(255,255,255,0.08);transition:all 0.3s ease}
+      .car-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15)}
+      
+      .car-image{position:relative;padding-top:56.25%;overflow:hidden;background:#111}
+      .car-image img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;
+                    transition:all 0.5s ease}
+      .car-card:hover .car-image img{transform:scale(1.05)}
+
+      .car-info{padding:24px}
+      .car-title{font-size:24px;font-weight:700;margin:0 0 16px;color:var(--accent)}
+      
+      /* Interactive buttons */
+      .car-actions{display:flex;gap:12px;margin-top:16px}
+      .btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+           padding:12px;border-radius:8px;font-weight:600;font-size:14px;
+           border:none;cursor:pointer;transition:all 0.3s ease}
+      .btn-sound{background:linear-gradient(135deg,#2c2c2c,#1a1a1a);color:#fff}
+      .btn-ai{background:linear-gradient(135deg,var(--accent),#b03820);color:#fff}
+      .btn:hover{transform:translateY(-2px)}
+      .btn-sound:hover{background:linear-gradient(135deg,#3c3c3c,#2a2a2a)}
+      .btn-ai:hover{box-shadow:0 4px 12px rgba(226,79,40,0.25)}
+      .btn svg{width:20px;height:20px;opacity:0.9}
+
+      @media (max-width:900px){
+        .content{padding:100px 24px 24px}
+        .title{font-size:48px}
+        .car-grid{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))}
+      }
+      @media (max-width:640px){
+        .vnav{display:none}
+        .title{font-size:36px}
+        .content{padding:80px 16px 16px}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero-image" aria-hidden="true"></div>
+
+      <nav class="vnav" aria-label="Main navigation">
+        <a href="index.html" class="nav-item" title="Home">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="Contact.html" class="nav-item" title="Contact">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a href="ShowCase.html" class="nav-item active" title="Showcase">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </nav>
+
+      <div class="brand">WEBWHEELS</div>
+
+      <div class="content">
+        <h1 class="title">Our Collection</h1>
+
+        <div class="car-grid">
+          <!-- Cars -->
+          <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type A Sports Car" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type A Sports Car</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeA')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeA')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type B Luxury Sedan" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type B Luxury Sedan</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeB')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeB')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+       
+          <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type C Performance" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type C Performance</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeC')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeC')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+           <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type A Sports Car" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type A Sports Car</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeA')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeA')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type B Luxury Sedan" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type B Luxury Sedan</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeB')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeB')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+       
+          <article class="car-card">
+            <div class="car-image">
+              <img src="Car.jpg" alt="Type C Performance" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Type C Performance</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeC')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeC')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Active nav state
+      (function(){
+        const navItems = Array.from(document.querySelectorAll('.vnav .nav-item'));
+        const currentFile = (function(){
+          const p = location.pathname || location.href;
+          const seg = p.split('/').filter(Boolean).pop() || '';
+          return seg.toLowerCase();
+        })();
+        navItems.forEach(a=>{
+          const href = (a.getAttribute('href')||'').split('/').filter(Boolean).pop() || '';
+          if(href && href.toLowerCase() === currentFile) a.classList.add('active');
+          a.addEventListener('click', ()=>{navItems.forEach(n=>n.classList.remove('active'));a.classList.add('active')});
+        });
+      })();
+
+      // Mock functions for sound and AI chat
+      function playSound(carType) {
+        console.log(`Playing ${carType} engine sound...`);
+        alert(`🔊 Playing ${carType} engine sound (this is a mock - add audio files to enable real playback)`);
+      }
+
+      function startAIChat(carType) {
+        console.log(`Starting AI chat about ${carType}...`);
+        alert(`🤖 Starting chat about ${carType} (this is a mock - integrate with your preferred AI chat service)`);
+      }
+    </script>
+  </body>
 </html>
