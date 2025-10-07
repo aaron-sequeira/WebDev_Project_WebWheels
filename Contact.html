@@ -22,10 +22,10 @@
       /* Centered content */
       .content{position:relative;z-index:3;display:flex;flex:1;align-items:center;justify-content:center;padding:64px 24px}
       .panel{max-width:640px;text-align:center}
-      .title{font-size:72px;color:var(--accent);font-weight:800;margin:0 0 32px;text-transform:uppercase;letter-spacing:2px}
+      .title{font-size:42px;color:var(--accent);font-weight:800;margin:32px 11px 32px;text-transform:uppercase;letter-spacing:2px}
       
       /* Contact info cards */
-      .cards{display:flex;flex-wrap:wrap;gap:16px;margin:32px 0;justify-content:center}
+      .cards{display:flex; flex-direction:row;gap:16px;margin:32px 0;justify-content:center}
       .card{flex:0 1 180px;display:flex;flex-direction:column;align-items:center;gap:12px;
             background:linear-gradient(135deg,rgba(255,255,255,0.04), rgba(0,0,0,0.1));
             padding:24px;border-radius:12px;backdrop-filter:blur(10px);
@@ -41,11 +41,10 @@
                        opacity:0.7;margin-bottom:4px}
       .card .text .main{font-size:16px;font-weight:600}
 
-      @media (max-width:900px){.title{font-size:56px}.card{min-width:260px}}
-      @media (max-width:640px){.vnav{display:none}.content{padding:28px}.title{font-size:40px}}
+ 
   /* Contact form styles */
   .contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.08));
-               padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);
+               padding:8px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);
                max-width:560px;margin:0 auto;backdrop-filter:blur(10px)}
   .contact-row{display:flex;gap:12px}
   .contact-row .field{flex:1;display:flex;flex-direction:column}
@@ -65,12 +64,16 @@
        transition:all 0.3s ease}
   .btn:hover:not(:disabled){transform:translateY(-2px);
                            box-shadow:0 4px 12px rgba(176,56,32,0.25)}
+
   .btn:disabled{opacity:0.6;cursor:not-allowed}
+
   .field .error{color:#ff9494;font-size:13px;margin-top:6px}
+
   .form-message{margin-top:16px;padding:12px 18px;border-radius:8px;
                background:linear-gradient(90deg, rgba(40,150,60,0.15), rgba(40,150,60,0.08));
                color:#bff3c9;font-weight:600;border:1px solid rgba(40,150,60,0.15);
                display:none;text-align:center;animation:fadeIn 0.3s ease}
+               
   .form-message.show{display:block}
   @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}
                    to{opacity:1;transform:translateY(0)}}
@@ -85,7 +88,11 @@
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="Contact.html" class="nav-item" title="Contact">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1" stroke="white" stroke-width="1.2"/></svg>
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.72 3.03a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.96.36 1.98.6 3.03.72A2 2 0 0 1 22 16.92z"/>
+</svg>
+
         </a>
         <a href="ShowCase.html" class="nav-item" title="Showcase">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -128,6 +135,7 @@
               Thanks — your message was prepared locally (no server configured).
             </div>
           </form>
+          
              <div class="cards">
             <div class="card">
               <div class="icon" aria-hidden="true">📞</div>
@@ -136,11 +144,6 @@
             <div class="card">
               <div class="icon" aria-hidden="true">📷</div>
               <div class="text"><div class="meta">Instagram</div><div class="main">@webwheelssite</div></div>
-            </div>
-
-            <div class="card">
-              <div class="icon" aria-hidden="true">🌐</div>
-              <div class="text"><div class="meta">Website</div><div class="main">www.webwheels.com</div></div>
             </div>
           </div>
         </div>
@@ -180,11 +183,26 @@
 
         function validate(){
           let ok = true;
-          if(!nameEl.value.trim()){ setError('name','Please enter your name'); ok = false } else setError('name','');
+          if(!nameEl.value.trim()){ 
+            setError('name','Please enter your name');
+            ok = false 
+        } else setError('name','');
+
           const email = emailEl.value.trim();
-          if(!email){ setError('email','Please enter your email'); ok = false }
-          else if(!/^\S+@\S+\.\S+$/.test(email)){ setError('email','Please enter a valid email'); ok = false } else setError('email','');
-          if(!msgEl.value.trim() || msgEl.value.trim().length < 6){ setError('message','Please enter a short message (6+ characters)'); ok = false } else setError('message','');
+
+          if(!email){ 
+            setError('email','Please enter your email'); 
+            ok = false 
+          }
+          else if(emailEl.validity.typeMismatch){ 
+            setError('email','Please enter a valid email'); 
+            ok = false 
+          } else setError('email','');
+          
+          if(!msgEl.value.trim() || msgEl.value.trim().length < 6){ 
+            setError('message','Please enter a short message (6+ characters)'); 
+            ok = false 
+          } else setError('message','');
           return ok;
         }
 

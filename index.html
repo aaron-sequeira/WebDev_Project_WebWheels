@@ -99,7 +99,11 @@
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
                 <a href="Contact.html" class="nav-item" data-title="Lock" title="Lock">
-                    <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1" stroke="white" stroke-width="1.2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.72 3.03a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.96.36 1.98.6 3.03.72A2 2 0 0 1 22 16.92z"/>
+                </svg>
+               
                 </a>
                 <a href="ShowCase.html" class="nav-item" data-title="Showcase" title="Showcase">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -112,9 +116,8 @@
             <div class="container">
                 <div class="left-col">
                     <p class="kicker">WELCOME TO WEBWHEELS</p>
-                    <h1>MAIN PAGE</h1>
-                    <p class="subtitle">Description about the main topic/idea of our website<br/>...
-                    <br/>...</p>
+                    <h1>Search your car</h1>
+                    
 
                     <div class="search" role="search" aria-label="Search">
                         <input type="search" placeholder="Search..." aria-label="Search site" id="siteSearch">
@@ -131,18 +134,35 @@
             <div class="about-inner">
                 <div class="about-left">
                     <div class="logo">WEBWHEELS</div>
-                    <h2 id="about-heading" class="title">JOHN'S<br/>ABOUT PAGE</h2>
-                    <p class="desc">JOHN'S STORY ...<br/>...<br/>...</p>
+                    <h2 id="about-heading" class="title">ABOUT ME</h2>
+                    <p class="desc">Hi im John<br/>
+                        I have been looking at wide range of cars since childhood. My father took me to exhibitions 
+                        of vintage and unique cars, different garages, and so on. I liked to listen to the sound of the car engines 
+                         and guess what car it belonged to. I perceived it as if the engine of a car was the heart that sets 
+                         the rhythm. At that time, I had a desire to understand how everything works inside, which later grew 
+                         into a passion for engines. My father had a very good car, but it did not suit me at all and was 
+                         not comfortable, you could say it was not "the one for me”. This is how I came to understand authenticity.  
+                         Looking at my father, I understood, when a car suits a person, it adds confidence, comfort, and pleasure from 
+                         every trip. That is why I want everyone to find a car not just by price or brand, but by an internal coincidence — the 
+                         way i once found my own.
+                        </p>
                 </div>
 
                 <div class="about-grid">
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
-                        <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('Car.jpg')"><div class="label">TYPE A</div></div></div>
-                        <div class="card-wrap"><div class="card bg small card-inner" style="background-image:url('Car.jpg')"><div class="label">TYPE B</div></div></div>
+                        <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car1.jpg')"><div class="label">Renault 4</div></div></div>
+                        <div class="card-wrap"><div class="card bg small card-inner" style="background-image:url('image/car2.jpg')"><div class="label">Chrysler </div></div></div>
                     </div>
 
-                    <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('Car.jpg')"><div class="label">TYPE C</div></div></div>
+                    <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car3.jpg')"><div class="label">Jeep Grand Cherokee</div></div></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
+                        <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car4.jpg')"><div class="label">BMW M4</div></div></div>
+                        <div class="card-wrap"><div class="card bg small card-inner" style="background-image:url('image/car5.jpg')"><div class="label">1956 Chevrolet</div></div></div>
+                    </div>
+
+                    <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car6.jpg')"><div class="label"> 1973 Ford Falcon XB GT Coupe</div></div></div>
                 </div>
+                
             </div>
         </section>
 
@@ -173,19 +193,6 @@
                     });
                 });
 
-                // basic search enter -> search query on site (mock behavior)
-                const input = document.getElementById('siteSearch');
-                if(input){
-                    input.addEventListener('keydown', (e)=>{
-                        if(e.key === 'Enter'){
-                            const q = input.value.trim();
-                            if(!q) return; // do nothing if empty
-                            // try to open a query in Google restricted to this site (works locally when online)
-                            const host = location.hostname || 'localhost';
-                            window.open(`https://www.google.com/search?q=${encodeURIComponent(q+' site:'+host)}`,'_blank');
-                        }
-                    });
-                }
             })();
         </script>
     </body>
