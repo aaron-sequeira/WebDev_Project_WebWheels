@@ -4,87 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WebWheels - Contact</title>
-    <style>
-      :root{--accent:#e24f28;--glass: rgba(255,255,255,0.06)}
-      html,body{height:100%;margin:0;font-family: 'Segoe UI', Roboto, Arial, sans-serif;color:#fff;line-height:1.5}
-      .hero{position:relative;height:100vh;min-height:640px;background:#000 center/cover no-repeat;display:flex;align-items:center;overflow:hidden}
-      .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));mix-blend-mode:multiply;pointer-events:none}
-      .hero-image{position:absolute;inset:0;background-image:url('Car.jpg');background-size:cover;background-position:center;filter:brightness(0.7) saturate(0.9)}
-
-      /* navbar */
-      .vnav{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;padding:10px 6px;background:linear-gradient(180deg,var(--glass),rgba(0,0,0,0));border-top-right-radius:6px;border-bottom-right-radius:6px;z-index:10}
-      .vnav a{width:56px;height:56px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;background:transparent;text-decoration:none;cursor:pointer;transition:all .18s}
-      .vnav a.active, .vnav a:hover{background:linear-gradient(180deg,var(--accent),#b03820);transform:translateX(4px)}
-      .vnav a svg{width:22px;height:22px}
-
-      .brand{position:absolute;right:48px;top:36px;color:var(--accent);font-weight:700;letter-spacing:1px}
-
-      /* Centered content */
-      .content{position:relative;z-index:3;display:flex;flex:1;align-items:center;justify-content:center;padding:64px 24px}
-      .panel{max-width:640px;text-align:center}
-      .title{font-size:42px;color:var(--accent);font-weight:800;margin:32px 11px 32px;text-transform:uppercase;letter-spacing:2px}
-      
-      /* Contact info cards */
-      .cards{display:flex; flex-direction:row;gap:16px;margin:32px 0;justify-content:center}
-      .card{flex:0 1 180px;display:flex;flex-direction:column;align-items:center;gap:12px;
-            background:linear-gradient(135deg,rgba(255,255,255,0.04), rgba(0,0,0,0.1));
-            padding:24px;border-radius:12px;backdrop-filter:blur(10px);
-            border:1px solid rgba(255,255,255,0.08);transition:all 0.3s ease}
-      .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15);
-                 background:linear-gradient(135deg,rgba(255,255,255,0.06), rgba(0,0,0,0.12))}
-      .card .icon{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),#b03820);
-                 display:flex;align-items:center;justify-content:center;border-radius:16px;
-                 font-size:24px;margin-bottom:4px;transition:transform 0.3s ease}
-      .card:hover .icon{transform:scale(1.1)}
-      .card .text{text-align:center;color:#fff}
-      .card .text .meta{font-size:13px;text-transform:uppercase;letter-spacing:1px;
-                       opacity:0.7;margin-bottom:4px}
-      .card .text .main{font-size:16px;font-weight:600}
-
- 
-  /* Contact form styles */
-  .contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.08));
-               padding:8px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);
-               max-width:560px;margin:0 auto;backdrop-filter:blur(10px)}
-  .contact-row{display:flex;gap:12px}
-  .contact-row .field{flex:1;display:flex;flex-direction:column}
-  label{font-size:13px;text-transform:uppercase;letter-spacing:1px;opacity:0.8;margin-bottom:8px}
-  input[type="text"],input[type="email"],textarea{
-    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
-    padding:12px 16px;border-radius:8px;color:#fff;outline:none;font-size:15px;
-    transition:all 0.3s ease;width:100%;box-sizing:border-box}
-  input[type="text"]:focus,input[type="email"]:focus,textarea:focus{
-    background:rgba(255,255,255,0.05);border-color:var(--accent);
-    box-shadow:0 0 0 3px rgba(226,79,40,0.15)}
-  textarea{min-height:120px;resize:vertical;line-height:1.5}
-  .form-actions{display:flex;justify-content:center;margin-top:24px}
-  .btn{background:linear-gradient(135deg,var(--accent),#b03820);
-       border:none;color:#fff;padding:12px 32px;border-radius:8px;
-       cursor:pointer;font-weight:700;font-size:15px;letter-spacing:0.5px;
-       transition:all 0.3s ease}
-  .btn:hover:not(:disabled){transform:translateY(-2px);
-                           box-shadow:0 4px 12px rgba(176,56,32,0.25)}
-
-  .btn:disabled{opacity:0.6;cursor:not-allowed}
-
-  .field .error{color:#ff9494;font-size:13px;margin-top:6px}
-
-  .form-message{margin-top:16px;padding:12px 18px;border-radius:8px;
-               background:linear-gradient(90deg, rgba(40,150,60,0.15), rgba(40,150,60,0.08));
-               color:#bff3c9;font-weight:600;border:1px solid rgba(40,150,60,0.15);
-               display:none;text-align:center;animation:fadeIn 0.3s ease}
-               
-  .form-message.show{display:block}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}
-                   to{opacity:1;transform:translateY(0)}}
-    </style>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <div class="hero" role="main">
       <div class="hero-image" aria-hidden="true"></div>
 
       <nav class="vnav" aria-label="Main navigation">
-        <a href="index.html" class="nav-item" title="Home">
+        <a href="../index.html" class="nav-item" title="Home">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="Contact.html" class="nav-item" title="Contact">
@@ -94,7 +21,7 @@
 </svg>
 
         </a>
-        <a href="ShowCase.html" class="nav-item" title="Showcase">
+        <a href="./About.html" class="nav-item" title="Showcase">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
         </a>
       </nav>
@@ -136,12 +63,12 @@
             </div>
           </form>
           
-             <div class="cards">
-            <div class="card">
+             <div class="Ccards">
+            <div class="Ccard">
               <div class="icon" aria-hidden="true">📞</div>
               <div class="text"><div class="meta">Phone</div><div class="main">+353-456-7890</div></div>
             </div>
-            <div class="card">
+            <div class="Ccard">
               <div class="icon" aria-hidden="true">📷</div>
               <div class="text"><div class="meta">Instagram</div><div class="main">@webwheelssite</div></div>
             </div>

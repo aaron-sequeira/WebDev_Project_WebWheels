@@ -4,90 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>WebWheels - Main Page</title>
-        <style>
-            :root{
-                --accent:#e24f28;
-                --dark: rgba(10,10,10,0.7);
-                --glass: rgba(255,255,255,0.06);
-            }
-            html,body{height:100%;margin:0;font-family: 'Segoe UI', Roboto, Arial, sans-serif;color:#fff}
-
-
-            .hero{
-                position:relative;height:100vh;min-height:640px;background:#000 center/cover no-repeat;
-                display:flex;align-items:center;overflow:hidden;
-            }
-
-            .hero::before{
-                content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));mix-blend-mode:multiply;pointer-events:none;
-            }
-
-            .hero-image{
-                position:absolute;inset:0;background-image:url('Car.jpg');background-size:cover;background-position:center;filter:brightness(0.85) saturate(0.9);
-            }
-
-            /* navbar*/
-            .vnav{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;padding:10px 6px;background:linear-gradient(180deg,var(--glass),rgba(0,0,0,0));border-top-right-radius:6px;border-bottom-right-radius:6px;z-index:10;pointer-events:auto}
-            .vnav a{width:56px;height:56px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;background:transparent;text-decoration:none;cursor:pointer;transition:all .18s}
-            .vnav a.active, .vnav a:hover{background:linear-gradient(180deg,var(--accent),#b03820);transform:translateX(4px)}
-            .vnav a svg{width:22px;height:22px;opacity:0.95}
-
-            .brand{position:absolute;right:48px;top:36px;color:var(--accent);font-weight:700;letter-spacing:1px}
-
-            /* Content */
-            .container{position:relative;z-index:3;display:flex;flex:1;align-items:flex-end;padding:64px 96px;gap:40px}
-            .left-col{flex:1;max-width:900px}
-            .kicker{font-size:18px;opacity:0.9;margin:0 0 12px 0}
-            h1{font-size:110px;margin:0;line-height:0.9;color:var(--accent);font-weight:800;letter-spacing:4px}
-            .subtitle{max-width:560px;color:rgba(255,255,255,0.85);font-style:italic;margin-top:18px}
-
-            /* Search style */
-            .search{margin-top:28px;display:flex;align-items:center;gap:12px}
-            .search input{flex:1;padding:14px 18px;border-radius:28px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#fff;font-size:16px;outline:none}
-            .search .mic{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);cursor:pointer}
-
-            .right-accent{position:absolute;right:32px;bottom:32px;width:200px;height:200px;background:linear-gradient(135deg, rgba(226,79,40,0.12), rgba(226,79,40,0.02));transform:skewX(-18deg);border-radius:8px}
-
-            /* For page responsiveness */
-            @media (max-width:1000px){
-                h1{font-size:64px}
-                .container{padding:36px}
-                .vnav{left:8px}
-            }
-            @media (max-width:640px){
-                .vnav{display:none}
-                h1{font-size:48px}
-                .brand{right:22px}
-            }
-            /* About style */
-            .about{
-                background:#111; color:#fff; padding:80px 6%;
-            }
-            .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-            .about-left{padding-right:20px}
-            .about-left .logo{color:var(--accent);font-weight:700;margin-bottom:18px}
-            .about-left .title{font-size:64px;color:var(--accent);font-weight:800;line-height:0.95;margin:0 0 18px}
-            .about-left .desc{color:rgba(255,255,255,0.85);font-style:italic}
-
-            .about-grid{display:grid;grid-template-columns:1fr;gap:22px}
-            /* cards layout for large screens */
-            @media(min-width:900px){
-                .about-inner{grid-template-columns:1fr 2fr}
-                .about-grid{grid-template-columns:1fr 1fr;grid-auto-rows:1fr}
-            }
-
-            .card{position:relative;overflow:hidden;border-radius:6px;background:#222;height:220px;display:flex;align-items:end}
-            .card.bg{background-size:cover;background-position:center}
-            .card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));}
-            .card .label{position:absolute;left:18px;bottom:14px;background:linear-gradient(90deg,var(--accent),rgba(176,56,32,0.6));padding:8px 14px;border-radius:4px;font-weight:700}
-
-            .card-wrap{transform:skewX(-8deg);overflow:visible}
-            .card-inner{transform:skewX(8deg);width:100%;height:100%}
-
-            /* specific sizes for arrangement */
-            .card.large{height:260px}
-            .card.small{height:200px}
-        </style>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
         <div class="hero" role="main">
@@ -98,14 +15,14 @@
                     <!-- home icon -->
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
-                <a href="Contact.html" class="nav-item" data-title="Lock" title="Lock">
+                <a href="./pages/Contact.html" class="nav-item" data-title="Lock" title="Lock">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.72 3.03a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.96.36 1.98.6 3.03.72A2 2 0 0 1 22 16.92z"/>
                 </svg>
                
                 </a>
-                <a href="ShowCase.html" class="nav-item" data-title="Showcase" title="Showcase">
+                <a href="./pages/About.html" class="nav-item" data-title="Showcase" title="Showcase">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
                 </a>
              
@@ -128,42 +45,133 @@
                 <div class="right-accent" aria-hidden="true"></div>
             </div>
         </div>
+        
 
-        <!-- About -->
-        <section class="about" aria-labelledby="about-heading">
-            <div class="about-inner">
-                <div class="about-left">
-                    <div class="logo">WEBWHEELS</div>
-                    <h2 id="about-heading" class="title">ABOUT ME</h2>
-                    <p class="desc">Hi im John<br/>
-                        I have been looking at wide range of cars since childhood. My father took me to exhibitions 
-                        of vintage and unique cars, different garages, and so on. I liked to listen to the sound of the car engines 
-                         and guess what car it belonged to. I perceived it as if the engine of a car was the heart that sets 
-                         the rhythm. At that time, I had a desire to understand how everything works inside, which later grew 
-                         into a passion for engines. My father had a very good car, but it did not suit me at all and was 
-                         not comfortable, you could say it was not "the one for me”. This is how I came to understand authenticity.  
-                         Looking at my father, I understood, when a car suits a person, it adds confidence, comfort, and pleasure from 
-                         every trip. That is why I want everyone to find a car not just by price or brand, but by an internal coincidence — the 
-                         way i once found my own.
-                        </p>
-                </div>
+        <section class="showcasebg" aria-labelledby="about-heading">
+                    <div class="content">
+        <h1 class="title">Our Collection</h1>
 
-                <div class="about-grid">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
-                        <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car1.jpg')"><div class="label">Renault 4</div></div></div>
-                        <div class="card-wrap"><div class="card bg small card-inner" style="background-image:url('image/car2.jpg')"><div class="label">Chrysler </div></div></div>
-                    </div>
-
-                    <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car3.jpg')"><div class="label">Jeep Grand Cherokee</div></div></div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
-                        <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car4.jpg')"><div class="label">BMW M4</div></div></div>
-                        <div class="card-wrap"><div class="card bg small card-inner" style="background-image:url('image/car5.jpg')"><div class="label">1956 Chevrolet</div></div></div>
-                    </div>
-
-                    <div class="card-wrap"><div class="card bg large card-inner" style="background-image:url('image/car6.jpg')"><div class="label"> 1973 Ford Falcon XB GT Coupe</div></div></div>
-                </div>
-                
+        <div class="car-grid">
+          <!-- Cars -->
+          <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car1.jpg" alt="Type A Sports Car" loading="lazy">
             </div>
+            <div class="car-info">
+              <h2 class="car-title">Renault 4</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeA')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeA')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car2.jpg" alt="Type B Luxury Sedan" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Chrysler Model 70 Roadster</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeB')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeB')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+       
+          <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car3.jpg" alt="Type C Performance" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">Jeep Grand Cherokee</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeC')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeC')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+           <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car4.jpg" alt="Type A Sports Car" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">BMW M4 (F82)</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeA')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeA')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car5.jpg" alt="Type B Luxury Sedan" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">1956 Chevrolet Bel Air</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeB')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeB')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+
+       
+          <article class="car-card">
+            <div class="car-image">
+              <img src="./media/car6.jpg" alt="Type C Performance" loading="lazy">
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">1973 Ford Falcon XB GT Coupe</h2>
+              <div class="car-actions">
+                <button class="btn btn-sound" onclick="playSound('typeC')" title="Play engine sound">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Engine Sound
+                </button>
+                <button class="btn btn-ai" onclick="startAIChat('typeC')" title="Chat about this car">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Talk to AI
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
         </section>
 
         <script>
