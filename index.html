@@ -10,23 +10,20 @@
         <div class="hero" role="main">
             <div class="hero-image" aria-hidden="true"></div>
 
-            <nav class="vnav" aria-label="Main navigation">
-                <a href="index.html" class="nav-item active" data-title="Home" title="Home">
-                    <!-- home icon -->
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="./pages/Contact.html" class="nav-item" data-title="Lock" title="Lock">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.72 3.03a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.96.36 1.98.6 3.03.72A2 2 0 0 1 22 16.92z"/>
-                </svg>
-               
-                </a>
-                <a href="./pages/About.html" class="nav-item" data-title="Showcase" title="Showcase">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M7 11h10M5 15h14" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-                </a>
-             
-            </nav>
+                 <nav class="vnav" aria-label="Main navigation">
+        <a href=".  /index.html" class="nav-item" title="Home">
+          
+        Home</a>
+        <a href="./pages/Contact.html" class="nav-item" title="Contact">
+  <path fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.72 3.03a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.96.36 1.98.6 3.03.72A2 2 0 0 1 22 16.92z"/>
+</svg>
+
+        Contact</a>
+        <a href="./pages/About.html" class="nav-item" title="Showcase">
+         
+        About</a>
+      </nav>
 
             <div class="brand">WEBWHEELS</div>
 
@@ -55,7 +52,7 @@
           <!-- Cars -->
           <article class="car-card">
             <div class="car-image">
-              <img src="./media/car1.jpg" alt="Type A Sports Car" loading="lazy">
+              <img src="./media/car1.jpg" alt="A picture of a red Renault 4 " loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">Renault 4</h2>
@@ -75,7 +72,7 @@
 
           <article class="car-card">
             <div class="car-image">
-              <img src="./media/car2.jpg" alt="Type B Luxury Sedan" loading="lazy">
+              <img src="./media/car2.jpg" alt="A picture of a green Chrysler Model 70 Roadster" loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">Chrysler Model 70 Roadster</h2>
@@ -95,7 +92,7 @@
        
           <article class="car-card">
             <div class="car-image">
-              <img src="./media/car3.jpg" alt="Type C Performance" loading="lazy">
+              <img src="./media/car3.jpg" alt="A picture of a white Jeep Grand Cherokee" loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">Jeep Grand Cherokee</h2>
@@ -114,7 +111,7 @@
 
            <article class="car-card">
             <div class="car-image">
-              <img src="./media/car4.jpg" alt="Type A Sports Car" loading="lazy">
+              <img src="./media/car4.jpg" alt="A picture of a metallic black BMW M4" loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">BMW M4 (F82)</h2>
@@ -134,7 +131,7 @@
 
           <article class="car-card">
             <div class="car-image">
-              <img src="./media/car5.jpg" alt="Type B Luxury Sedan" loading="lazy">
+              <img src="./media/car5.jpg" alt="A picture of a orange   1956 Chevrolet Bel Air" loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">1956 Chevrolet Bel Air</h2>
@@ -154,7 +151,7 @@
        
           <article class="car-card">
             <div class="car-image">
-              <img src="./media/car6.jpg" alt="Type C Performance" loading="lazy">
+              <img src="./media/car6.jpg" alt="A picture of a purple 1973 Ford Falcon XB GT Coupe" loading="lazy">
             </div>
             <div class="car-info">
               <h2 class="car-title">1973 Ford Falcon XB GT Coupe</h2>
@@ -180,7 +177,7 @@
                 const navItems = Array.from(document.querySelectorAll('.vnav .nav-item'));
 
                 // Set active nav item based on current file name 
-                const currentFile = (function(){
+                const currentFile = (function(){  
                     const p = location.pathname || location.href;
                     // get last segment
                     const seg = p.split('/').filter(Boolean).pop() || '';
