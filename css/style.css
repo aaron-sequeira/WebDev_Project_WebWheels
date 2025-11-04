@@ -112,7 +112,7 @@
             .about-left{padding-right:20px}
             .about-left .logo{color:var(--accent);font-weight:700;margin-bottom:18px}
             .about-left .title{font-size:64px;color:var(--accent);font-weight:800;line-height:0.95;margin:0 0 18px}
-            .about-left .desc{color:rgba(230,255,255,0.85);line-height:1.5;font-style:italic}
+            .about-left .desc{color:rgba(230,255,255,0.85);line-height:1.2;font-style:italic}
 
             .about-grid{display:grid;grid-template-columns:1fr;gap:22px}
             /* cards layout for large screens */
