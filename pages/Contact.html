@@ -37,19 +37,34 @@
           <form id="contactForm" class="contact-form" novalidate>
             <div class="contact-row">
               <div class="field">
-                <label for="name"><b>Your name</b></label>
-                <input id="name" name="name" type="text" placeholder="Full name" required>
-                <div class="error" data-for="name"></div>
+                <label for="first_name"><b>First Name *</b></label>
+                <input id="first_name" name="first_name" type="text" placeholder="First name" required>
+                <div class="error" data-for="first_name"></div>
               </div>
               <div class="field">
-                <label for="email"><b>Email</b></label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required>
-                <div class="error" data-for="email"></div>
+                <label for="last_name"><b>Last name *</b></label>
+                <input id="last_name" name="last_name" type="text" placeholder="Last name" required>
+                <div class="error" data-for="last_name"></div>
               </div>
+            </div>
+            <div class="field">
+              <label for="email"><b>Email Address *</b></label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              <div class="error" data-for="email"></div>
+            </div>
+            <div class="field">
+              <label for="reason"><b>Reason for Inquiry *</b></label>
+              <select name="reason" id="reason" required>
+                <option value="" selected disabled>Select ...</option>
+                <option value="general">General</option>
+                <option value="feedback">Feedback</option>
+                <option value="technical_support">Technical Support</option>
+              </select>
+              <div class="error" data-for="reason"></div>
             </div>
 
             <div class="field" style="margin-top:16px">
-              <label for="message"><b>Message</b></label>
+              <label for="message"><b>Message *</b></label>
               <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
               <div class="error" data-for="message"></div>
             </div>
@@ -127,11 +142,21 @@
       (function(){
         const form = document.getElementById('contactForm');
         if(!form) return;
-        const nameEl = form.querySelector('#name');
+        const firstNameEl = form.querySelector('#first_name');
+        const lastNameEl = form.querySelector('#last_name');
         const emailEl = form.querySelector('#email');
+        const reasonEl = form.querySelector('#reason');
         const msgEl = form.querySelector('#message');
         const submitBtn = form.querySelector('.btn');
         const formMessage = document.getElementById('formMessage');
+
+        if(!reasonEl.value){ 
+          reasonEl.style.color = "#999";
+        }
+        reasonEl.addEventListener('change', function () {
+          reasonEl.style.color = "white";
+        }, { once: true });
+       
 
         function setError(field, message){
           const el = form.querySelector('.error[data-for="'+field+'"]');
@@ -140,10 +165,15 @@
 
         function validate(){
           let ok = true;
-          if(!nameEl.value.trim()){ 
-            setError('name','Please enter your name');
+          if(!firstNameEl.value.trim()){ 
+            setError('first_name','Please enter your First name');
             ok = false 
-        } else setError('name','');
+          } else setError('first_name','');
+
+          if(!lastNameEl.value.trim()){ 
+              setError('last_name','Please enter your Last name');
+              ok = false 
+          } else setError('last_name','');
 
           const email = emailEl.value.trim();
 
@@ -155,6 +185,11 @@
             setError('email','Please enter a valid email'); 
             ok = false 
           } else setError('email','');
+
+          if(!reasonEl.value){ 
+            setError('reason','Please select the reason of your inquiry');
+            ok = false 
+          } else setError('reason','');
           
           if(!msgEl.value.trim() || msgEl.value.trim().length < 6){ 
             setError('message','Please enter a short message (6+ characters)'); 
